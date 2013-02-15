@@ -7,15 +7,34 @@
 //
 
 #import "AppDelegate.h"
+#import "LogInController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    // Create your settings view controller
+    LogInController *loginVC = [[LogInController alloc] initWithNibName:nil bundle:nil];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+    // Create a tab bar item
+    //UITabBarItem *vipItem = [[UITabBarItem alloc] initWithTitle:@"VIP" image:[UIImage imageNamed:@"SettingsTabImage" tag:0];
+    
+    // Set the tab bar item
+    UITabBarItem *vipItem = [[UITabBarItem alloc] initWithTitle:@"VIP" image:nil tag:0];
+                                  self.navigationController.tabBarItem = vipItem;
+                                  
+                                  // Get a reference to the tab bar controller
+                                  UITabBarController *tbC = (UITabBarController*)self.window.rootViewController;
+                                  
+                                  // Get the current view controllers in your tab bar
+                                  NSMutableArray *currentItems = [NSMutableArray arrayWithArray:tbC.viewControllers];
+                                  
+                                  // Add your settings controller
+                                  [currentItems addObject:self.navigationController];
+                                  tbC.viewControllers = [NSArray arrayWithArray:currentItems];
+    
     return YES;
 }
 
