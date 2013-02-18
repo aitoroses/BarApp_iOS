@@ -11,3 +11,4 @@
 NSString *const ServerURL = SERVER_URL;
 NSString *const pathToWineThumb = SERVER_URL@"/img/wines/thumb/";
 NSString *const pathToWine = SERVER_URL@"/img/wines/";
+NSString *const map = SERVER_URL@"/map/map.html";

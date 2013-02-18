@@ -9,3 +9,4 @@
 FOUNDATION_EXPORT NSString *const pathToPublic;
 FOUNDATION_EXPORT NSString *const pathToWineThumb;
 FOUNDATION_EXPORT NSString *const *pathToWine;
+FOUNDATION_EXPORT NSString *const map;
