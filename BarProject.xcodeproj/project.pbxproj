@@ -11,6 +11,8 @@
 		F147C59E16CEBD4400A1A733 /* WineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F147C59D16CEBD4400A1A733 /* WineViewController.m */; };
 		F147C5A016CEC1C200A1A733 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F147C59F16CEC1C200A1A733 /* Common.m */; };
 		F147C5A216D2161800A1A733 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F147C5A116D2161800A1A733 /* MapKit.framework */; };
+		F19D021716D61EF400852D82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021616D61EF400852D82 /* README.md */; };
+		F19D021916D61F0900852D82 /* LISCENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021816D61F0900852D82 /* LISCENSE.md */; };
 		F1E6FBDF16C03CFC003A91F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */; };
 		F1E6FBE116C03CFC003A91F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBE016C03CFC003A91F2 /* Foundation.framework */; };
 		F1E6FBE316C03CFC003A91F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBE216C03CFC003A91F2 /* CoreGraphics.framework */; };
@@ -65,6 +67,8 @@
 		F147C59D16CEBD4400A1A733 /* WineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineViewController.m; sourceTree = "<group>"; };
 		F147C59F16CEC1C200A1A733 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		F147C5A116D2161800A1A733 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F19D021616D61EF400852D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F19D021816D61F0900852D82 /* LISCENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LISCENSE.md; sourceTree = "<group>"; };
 		F1E6FBDB16C03CFC003A91F2 /* BarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1E6FBE016C03CFC003A91F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -209,6 +213,8 @@
 				F147C59D16CEBD4400A1A733 /* WineViewController.m */,
 				F147C58C16CE799700A1A733 /* Common.h */,
 				F147C59F16CEC1C200A1A733 /* Common.m */,
+				F19D021616D61EF400852D82 /* README.md */,
+				F19D021816D61F0900852D82 /* LISCENSE.md */,
 			);
 			path = BarProject;
 			sourceTree = "<group>";
@@ -373,6 +379,8 @@
 				F1E6FC5D16C1847C003A91F2 /* RegisterController.xib in Resources */,
 				F1E6FC6116C188CF003A91F2 /* RootController.xib in Resources */,
 				F147C58F16CE7C8B00A1A733 /* placeholder.jpg in Resources */,
+				F19D021716D61EF400852D82 /* README.md in Resources */,
+				F19D021916D61F0900852D82 /* LISCENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
