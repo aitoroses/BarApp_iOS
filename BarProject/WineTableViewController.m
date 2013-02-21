@@ -30,23 +30,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Preparar Secciones
+    self.sections = @[@"Todos",@"Gran Reserva",@"Reserva",@"Crianza",@"Cosecha"];
+    self.sectionSelected = self.sections[0];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-        
+    
+#pragma mark JSON Request
+
+    // Peticion de los datos
     NSURL *url = [[NSURL alloc] initWithString:@"http://localhost/laravel/public/API/wines.json"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation
                                          JSONRequestOperationWithRequest:request
                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                             self.wineData = JSON;
+                                             self.wineData = [[NSMutableArray alloc] initWithArray:JSON];
                                              // Pasamos la informacion al Delegate
                                              AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                                             [appDelegate.dict setObject:JSON forKey:@"wines"];
+                                             [appDelegate.dict setObject:self.wineData forKey:@"wines"];
 
                                              [self.tableView reloadData];
                                          } failure:^(NSURLRequest *request, NSHTTPURLResponse *response,
@@ -67,39 +74,77 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    //For each section, you must return here it's label
+    if(section == 0) {
+        return @"Elegir por categoria";
+    } else {
+        if(!self.wineData.count == 0) return @"Vinos";
+        else return @"";
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.wineData.count;
+    if(section == 0) return self.sections.count;
+    else return self.wineData.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"aWineCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *wineCellIdentifier = @"aWineCell";
+    static NSString *categoryCellIdentifier = @"aCategoryCell";
+    UITableViewCell *cell;
+
+    // Seccion de Elegir por categoria
+    if(indexPath.section == 0) {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:categoryCellIdentifier forIndexPath:indexPath];
+        
+        if(!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:categoryCellIdentifier];
+        }
+        NSString *name =[NSString stringWithFormat:@"%@",
+                         self.sections[indexPath.row]];
+        cell.textLabel.text = name;
+        if([self.sectionSelected isEqualToString:self.sections[indexPath.row]])
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    NSString *name =[NSString stringWithFormat:@"%@",
+    // Seccion de Vinos
+    if(indexPath.section == 1) {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:wineCellIdentifier forIndexPath:indexPath];
+    
+        if(!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wineCellIdentifier];
+        }
+        NSString *name =[NSString stringWithFormat:@"%@",
                      self.wineData[indexPath.row][@"name"]];
     
-    cell.textLabel.text = name;
+        cell.textLabel.text = name;
     
-    //Imagen para cell
-    NSString *path = [NSString stringWithFormat:@"%@%@",
+        //Imagen para cell
+        NSString *path = [NSString stringWithFormat:@"%@%@",
                      pathToWineThumb,
                      self.wineData[indexPath.row][@"picture"]];
     
-    NSURL *url = [[NSURL alloc] initWithString:path];
+        NSURL *url = [[NSURL alloc] initWithString:path];
 
-    [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+        [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    
+        
+    }
     
     //Devuelve la celda
     return cell;
+    
 }
 
 /*
@@ -145,26 +190,61 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
+    if(indexPath.section == 0)
+    {
+        // Seleccionar categoria
+        self.sectionSelected= self.sections[indexPath.row];
+
+        // Se toman los datos
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSMutableArray *allWines = [[NSMutableArray alloc]
+                            initWithArray:[appDelegate.dict objectForKey:@"wines"]];
+        NSMutableArray *wines = [[NSMutableArray alloc] init];
         
-    WineViewController *wineVC = [sb instantiateViewControllerWithIdentifier:@"wine"];
-    
-    // Pass data to wineVC
-    
-    wineVC.wine = self.wineData[indexPath.row];
-    
-    //[self performSegueWithIdentifier:@"pushToWine" sender:self];
+        // En caso de no seleccionar "todos"
+        if(indexPath.row > 0 ) {
+            for (int i = 0; i<allWines.count; i++) {
+                NSDictionary *wine = [allWines objectAtIndex:i];
+                if([wine[@"category"] isEqualToString:self.sectionSelected]){
+                    [wines addObject:wine];
+                }
+            }
+        }
+        else wines = allWines;
         
-    [self.navigationController pushViewController:wineVC animated:YES];
+        // Recargar tabla
+        self.wineData = wines;
+        [self.tableView reloadData];
+        // Seccion de categorias
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+        // Seccion de vinos
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1]
+                      withRowAnimation:UITableViewRowAnimationLeft];
+        
+        // Scroll the table
+        // En caso de que no existan vinos, no se hara scroll y dara error
+        if(self.wineData.count > 0){
+            
+            NSIndexPath *newIndex = [NSIndexPath indexPathForRow:0 inSection:1];
+            [self.tableView scrollToRowAtIndexPath:newIndex atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
+        
+    }
+    if(indexPath.section == 1)
+    {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"mainStoryboard" bundle:nil];
+        
+        WineViewController *wineVC = [sb instantiateViewControllerWithIdentifier:@"wine"];
     
+        // Pass data to wineVC
+    
+        wineVC.wine = self.wineData[indexPath.row];
+    
+        //[self performSegueWithIdentifier:@"pushToWine" sender:self];
+            
+        [self.navigationController pushViewController:wineVC animated:YES];
+    }
 }
 
 @end

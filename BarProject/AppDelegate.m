@@ -13,6 +13,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Initialize Data
+    self.dict = [[NSMutableDictionary alloc] init];
+    
     // Create your settings view controller
     LogInController *loginVC = [[LogInController alloc] initWithNibName:nil bundle:nil];
     

@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.tableData = @[@"Vinos", @"Pinchos"];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -49,6 +49,11 @@
 {
     // Return the number of sections.
     return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    //For each section, you must return here it's label
+   return @"Secciones";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

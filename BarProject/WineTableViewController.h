@@ -10,6 +10,8 @@
 
 @interface WineTableViewController : UITableViewController
 
-@property (nonatomic,strong) NSArray *wineData;
+@property (nonatomic,strong) NSMutableArray *wineData;
+@property (nonatomic,strong) NSArray *sections;
+@property (nonatomic,strong) NSString *sectionSelected;
 
 @end

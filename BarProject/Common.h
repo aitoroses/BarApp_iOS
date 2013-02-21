@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 MurrayApps. All rights reserved.
 //
 
+FOUNDATION_EXPORT NSString *const serverURL;
 FOUNDATION_EXPORT NSString *const pathToPublic;
 FOUNDATION_EXPORT NSString *const pathToWineThumb;
-FOUNDATION_EXPORT NSString *const *pathToWine;
+FOUNDATION_EXPORT NSString *const pathToWine;
 FOUNDATION_EXPORT NSString *const map;
+FOUNDATION_EXPORT NSString *const pathToAPI;
