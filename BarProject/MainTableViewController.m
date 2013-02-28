@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
     
+    //Navigation Controller Style
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+
+    // Sections
     self.tableData = @[@"Vinos", @"Pinchos"];
     
     // Uncomment the following line to preserve selection between presentations.

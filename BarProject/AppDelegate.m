@@ -8,35 +8,52 @@
 
 #import "AppDelegate.h"
 #import "LogInController.h"
+#import "MWFSlideNavigationViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Initialize Data
+        
+    // ***** Initialize Data
     self.dict = [[NSMutableDictionary alloc] init];
     
-    // Create your settings view controller
+    // ***** Setting the login tab
+    
+    // Create your login view controller
     LogInController *loginVC = [[LogInController alloc] initWithNibName:nil bundle:nil];
-    
+    // Set main navigation controller initialized with the login ViewController
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    
     // Create a tab bar item
-    //UITabBarItem *vipItem = [[UITabBarItem alloc] initWithTitle:@"VIP" image:[UIImage imageNamed:@"SettingsTabImage" tag:0];
-    
+    UITabBarItem *vipItem = [[UITabBarItem alloc] initWithTitle:@"VIP" image:nil tag:0];    
     // Set the tab bar item
-    UITabBarItem *vipItem = [[UITabBarItem alloc] initWithTitle:@"VIP" image:nil tag:0];
-                                  self.navigationController.tabBarItem = vipItem;
-                                  
-                                  // Get a reference to the tab bar controller
-                                  UITabBarController *tbC = (UITabBarController*)self.window.rootViewController;
-                                  
-                                  // Get the current view controllers in your tab bar
-                                  NSMutableArray *currentItems = [NSMutableArray arrayWithArray:tbC.viewControllers];
-                                  
-                                  // Add your settings controller
-                                  [currentItems addObject:self.navigationController];
-                                  tbC.viewControllers = [NSArray arrayWithArray:currentItems];
+    self.navigationController.tabBarItem = vipItem;
+    // Get a reference to the tab bar controller
+    UITabBarController *tbC = (UITabBarController*)self.window.rootViewController;
+    // Get the current view controllers in your tab bar
+    NSMutableArray *currentItems = [NSMutableArray arrayWithArray:tbC.viewControllers];
+    // Add your login controller
+    [currentItems addObject:self.navigationController];
+    tbC.viewControllers = [NSArray arrayWithArray:currentItems];
+    
+    // ***** STYLE for NavigationBar
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    // ***** Setting the SlideViewController for Home tab
+    // Get the main controller Home
+    UIViewController *home = [tbC.viewControllers objectAtIndex:0];
+    // Setup slide navigation view controller instance
+    MWFSlideNavigationViewController *slideNavCtl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:home];
+    slideNavCtl.panEnabled = YES;
+    // Set tab bar item programatically
+    UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"Home" image:nil tag:0];
+    // Set the tab bar item
+    slideNavCtl.tabBarItem = homeItem;
+    // Configure slide navigation view as default for home tab
+    [currentItems replaceObjectAtIndex:0 withObject:slideNavCtl];
+    // Set the tab controllers another time
+    tbC.viewControllers = [NSArray arrayWithArray:currentItems];
+    
     
     return YES;
 }
