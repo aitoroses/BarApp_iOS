@@ -14,6 +14,7 @@
 		F16572AE16DFD7D600DFA330 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16572AD16DFD7D600DFA330 /* MWFSlideNavigationViewController.m */; };
 		F19399BA16E03EAB007E2EC2 /* NSObject+DelayedBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */; };
 		F19399BD16E04D4C007E2EC2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */; };
+		F19399C016E0B951007E2EC2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399BF16E0B951007E2EC2 /* MenuViewController.m */; };
 		F19D021716D61EF400852D82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021616D61EF400852D82 /* README.md */; };
 		F19D021916D61F0900852D82 /* LISCENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021816D61F0900852D82 /* LISCENSE.md */; };
 		F1E6FBDF16C03CFC003A91F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */; };
@@ -76,6 +77,8 @@
 		F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DelayedBlock.m"; sourceTree = "<group>"; };
 		F19399BB16E04D4C007E2EC2 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		F19399BE16E0B951007E2EC2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		F19399BF16E0B951007E2EC2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		F19D021616D61EF400852D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F19D021816D61F0900852D82 /* LISCENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LISCENSE.md; sourceTree = "<group>"; };
 		F1E6FBDB16C03CFC003A91F2 /* BarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +181,8 @@
 				F16572AD16DFD7D600DFA330 /* MWFSlideNavigationViewController.m */,
 				F1E6FC1516C08F47003A91F2 /* HomeViewController.h */,
 				F1E6FC1616C08F47003A91F2 /* HomeViewController.m */,
+				F19399BE16E0B951007E2EC2 /* MenuViewController.h */,
+				F19399BF16E0B951007E2EC2 /* MenuViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				F16572AE16DFD7D600DFA330 /* MWFSlideNavigationViewController.m in Sources */,
 				F19399BA16E03EAB007E2EC2 /* NSObject+DelayedBlock.m in Sources */,
 				F19399BD16E04D4C007E2EC2 /* MainTabBarController.m in Sources */,
+				F19399C016E0B951007E2EC2 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

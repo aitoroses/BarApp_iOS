@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "Common.h"
 #import "MainTabBarController.h"
+#import "MenuViewController.h"
 
 @interface HomeViewController ()
 
@@ -136,6 +137,38 @@
 
 #pragma mark -
 #pragma mark Delegate implementation
+#define VIEWTAG_OVERLAY 1100
+- (void) slideNavigationViewController:(MWFSlideNavigationViewController *)controller willPerformSlideFor:(UIViewController *)targetController withSlideDirection:(MWFSlideDirection)slideDirection distance:(CGFloat)distance orientation:(UIInterfaceOrientation)orientation {
+    
+    if (slideDirection == MWFSlideDirectionNone) {
+        
+        UIView * overlay = [self.navigationController.view viewWithTag:VIEWTAG_OVERLAY];
+        [overlay removeFromSuperview];
+        
+    } else {
+        
+        UIView * overlay = [[UIView alloc] initWithFrame:self.navigationController.view.bounds];
+        overlay.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+        overlay.tag = VIEWTAG_OVERLAY;
+        UITapGestureRecognizer * gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
+        [overlay addGestureRecognizer:gr];
+        overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [self.navigationController.view addSubview:overlay];
+        
+    }
+}
+- (void) slideNavigationViewController:(MWFSlideNavigationViewController *)controller animateSlideFor:(UIViewController *)targetController withSlideDirection:(MWFSlideDirection)slideDirection distance:(CGFloat)distance orientation:(UIInterfaceOrientation)orientation
+{
+    UIView * overlay = [self.navigationController.view viewWithTag:VIEWTAG_OVERLAY];
+    if (slideDirection == MWFSlideDirectionNone)
+    {
+        overlay.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    }
+    else
+    {
+        overlay.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    }
+}
 
 
 - (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
@@ -144,7 +177,6 @@
 {
     if (portraitOrientation)
     {
-        return 100;
         return 180;
     }
     else
@@ -159,8 +191,8 @@
 - (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
                       viewControllerForSlideDirecton:(MWFSlideDirection)direction
 {
-    UITableViewController * secCtl = [[UITableViewController alloc] init];
-    UINavigationController * navCtl = [[UINavigationController alloc] initWithRootViewController:secCtl];
+    MenuViewController *secCtl = [[MenuViewController alloc] init];
+    UINavigationController *navCtl = [[UINavigationController alloc] initWithRootViewController:secCtl];
     return navCtl;
 }
 @end
