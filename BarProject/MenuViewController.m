@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MenuViewController ()
 
@@ -35,7 +36,9 @@
     self.title = @"Menu";
     
     // TableController Style
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"MLBackground.jpg"]];
+    [self.tableView setSeparatorColor:[UIColor colorWithWhite:0 alpha:0]];
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,9 +86,26 @@
     // Background Color
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-    // Text color
+    cell.contentView.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    // Text
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.contentView.backgroundColor = [UIColor blackColor];
+    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [cell.textLabel setShadowColor:[UIColor colorWithWhite:0 alpha:0.7]];
+    [cell.textLabel setShadowOffset:CGSizeMake(1,1)];
+    // Layer
+        //  When selected
+    [[cell.selectedBackgroundView layer] setMasksToBounds:YES];
+    [[cell.selectedBackgroundView layer] setCornerRadius:6.0f];
+        // Default
+    [[cell layer] setMasksToBounds:NO];        // Efecto interesante en NO
+    [[cell layer] setCornerRadius:6.0f];
+    [[cell layer] setBorderColor:[[UIColor colorWithWhite:1 alpha:0.09] CGColor]];
+    [[cell layer] setBorderWidth:1.0f];
+    [[cell layer] setShadowColor:[[UIColor colorWithWhite:0 alpha:1] CGColor]];
+    [[cell layer] setShadowOffset:CGSizeMake(0, 0)];
+    [[cell layer] setShadowOpacity:1];
+    [[cell layer] setShadowRadius:2.0];
+
     
     // ***** Return cell
     

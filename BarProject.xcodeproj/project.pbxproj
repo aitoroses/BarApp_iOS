@@ -15,6 +15,8 @@
 		F19399BA16E03EAB007E2EC2 /* NSObject+DelayedBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */; };
 		F19399BD16E04D4C007E2EC2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */; };
 		F19399C016E0B951007E2EC2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399BF16E0B951007E2EC2 /* MenuViewController.m */; };
+		F19399C216E10053007E2EC2 /* MLBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19399C116E10053007E2EC2 /* MLBackground.jpg */; };
+		F19399C416E1095C007E2EC2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19399C316E1095C007E2EC2 /* QuartzCore.framework */; };
 		F19D021716D61EF400852D82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021616D61EF400852D82 /* README.md */; };
 		F19D021916D61F0900852D82 /* LISCENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021816D61F0900852D82 /* LISCENSE.md */; };
 		F1E6FBDF16C03CFC003A91F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */; };
@@ -79,6 +81,8 @@
 		F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		F19399BE16E0B951007E2EC2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		F19399BF16E0B951007E2EC2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		F19399C116E10053007E2EC2 /* MLBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MLBackground.jpg; path = img/MLBackground.jpg; sourceTree = "<group>"; };
+		F19399C316E1095C007E2EC2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F19D021616D61EF400852D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F19D021816D61F0900852D82 /* LISCENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LISCENSE.md; sourceTree = "<group>"; };
 		F1E6FBDB16C03CFC003A91F2 /* BarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19399C416E1095C007E2EC2 /* QuartzCore.framework in Frameworks */,
 				F147C5A216D2161800A1A733 /* MapKit.framework in Frameworks */,
 				F1E6FBDF16C03CFC003A91F2 /* UIKit.framework in Frameworks */,
 				F1E6FBE116C03CFC003A91F2 /* Foundation.framework in Frameworks */,
@@ -169,6 +174,7 @@
 		F147C58D16CE7C2400A1A733 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				F19399C116E10053007E2EC2 /* MLBackground.jpg */,
 				F147C58E16CE7C8B00A1A733 /* placeholder.jpg */,
 			);
 			name = img;
@@ -222,6 +228,7 @@
 		F1E6FBDD16C03CFC003A91F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F19399C316E1095C007E2EC2 /* QuartzCore.framework */,
 				F147C5A116D2161800A1A733 /* MapKit.framework */,
 				F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */,
 				F1E6FBE016C03CFC003A91F2 /* Foundation.framework */,
@@ -418,6 +425,7 @@
 				F147C58F16CE7C8B00A1A733 /* placeholder.jpg in Resources */,
 				F19D021716D61EF400852D82 /* README.md in Resources */,
 				F19D021916D61F0900852D82 /* LISCENSE.md in Resources */,
+				F19399C216E10053007E2EC2 /* MLBackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
