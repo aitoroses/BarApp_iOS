@@ -16,6 +16,7 @@
 {
         
     // ***** Initialize Data
+    
     self.dict = [[NSMutableDictionary alloc] init];
     
     // ***** Setting the login tab
@@ -37,14 +38,21 @@
     tbC.viewControllers = [NSArray arrayWithArray:currentItems];
     
     // ***** STYLE for NavigationBar
+    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // ***** Setting the SlideViewController for Home tab
+  
     // Get the main controller Home
     UIViewController *home = [tbC.viewControllers objectAtIndex:0];
+    UINavigationController *navCtl = [[UINavigationController alloc] initWithRootViewController:home];
+    navCtl.navigationBar.barStyle = UIBarStyleBlack;
     // Setup slide navigation view controller instance
-    MWFSlideNavigationViewController *slideNavCtl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:home];
+    MWFSlideNavigationViewController *slideNavCtl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:navCtl];
     slideNavCtl.panEnabled = YES;
+    // Initialize the Slide View Controller Delegate and datasource *** Lo hacemos aqui por que el storyboard se carga antes de que se cree nuestro SlideViewController
+    slideNavCtl.delegate = home;
+    slideNavCtl.dataSource = home;
     // Set tab bar item programatically
     UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"Home" image:nil tag:0];
     // Set the tab bar item
@@ -54,6 +62,8 @@
     // Set the tab controllers another time
     tbC.viewControllers = [NSArray arrayWithArray:currentItems];
     
+    // Configure delegate for TabBar for disabling
+    [tbC setDelegate:tbC];
     
     return YES;
 }

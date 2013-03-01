@@ -12,6 +12,8 @@
 		F147C5A016CEC1C200A1A733 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F147C59F16CEC1C200A1A733 /* Common.m */; };
 		F147C5A216D2161800A1A733 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F147C5A116D2161800A1A733 /* MapKit.framework */; };
 		F16572AE16DFD7D600DFA330 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16572AD16DFD7D600DFA330 /* MWFSlideNavigationViewController.m */; };
+		F19399BA16E03EAB007E2EC2 /* NSObject+DelayedBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */; };
+		F19399BD16E04D4C007E2EC2 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */; };
 		F19D021716D61EF400852D82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021616D61EF400852D82 /* README.md */; };
 		F19D021916D61F0900852D82 /* LISCENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = F19D021816D61F0900852D82 /* LISCENSE.md */; };
 		F1E6FBDF16C03CFC003A91F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E6FBDE16C03CFC003A91F2 /* UIKit.framework */; };
@@ -70,6 +72,10 @@
 		F147C5A116D2161800A1A733 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F16572AC16DFD7D600DFA330 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
 		F16572AD16DFD7D600DFA330 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
+		F19399B816E03EAA007E2EC2 /* NSObject+DelayedBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DelayedBlock.h"; sourceTree = "<group>"; };
+		F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DelayedBlock.m"; sourceTree = "<group>"; };
+		F19399BB16E04D4C007E2EC2 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		F19D021616D61EF400852D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F19D021816D61F0900852D82 /* LISCENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LISCENSE.md; sourceTree = "<group>"; };
 		F1E6FBDB16C03CFC003A91F2 /* BarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,10 +238,14 @@
 				F1E6FBED16C03CFC003A91F2 /* AppDelegate.h */,
 				F1E6FBEE16C03CFC003A91F2 /* AppDelegate.m */,
 				F1E6FC1316C03D37003A91F2 /* mainStoryboard.storyboard */,
+				F19399B816E03EAA007E2EC2 /* NSObject+DelayedBlock.h */,
+				F19399B916E03EAA007E2EC2 /* NSObject+DelayedBlock.m */,
 				F147C58C16CE799700A1A733 /* Common.h */,
 				F147C59F16CEC1C200A1A733 /* Common.m */,
 				F19D021616D61EF400852D82 /* README.md */,
 				F19D021816D61F0900852D82 /* LISCENSE.md */,
+				F19399BB16E04D4C007E2EC2 /* MainTabBarController.h */,
+				F19399BC16E04D4C007E2EC2 /* MainTabBarController.m */,
 			);
 			path = BarProject;
 			sourceTree = "<group>";
@@ -459,6 +469,8 @@
 				F147C59E16CEBD4400A1A733 /* WineViewController.m in Sources */,
 				F147C5A016CEC1C200A1A733 /* Common.m in Sources */,
 				F16572AE16DFD7D600DFA330 /* MWFSlideNavigationViewController.m in Sources */,
+				F19399BA16E03EAB007E2EC2 /* NSObject+DelayedBlock.m in Sources */,
+				F19399BD16E04D4C007E2EC2 /* MainTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

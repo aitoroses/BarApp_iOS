@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 MurrayApps. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "AFNetworking.h"
 #import "Common.h"
+#import "MainTabBarController.h"
 
 @interface HomeViewController ()
 
@@ -59,10 +61,8 @@
     [NSThread detachNewThreadSelector:@selector(loadMap) toTarget:self withObject:nil];
     [self.webView setScalesPageToFit:NO];
 
-
     //[self.myMapView setShowsUserLocation:YES];
     //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
-
     
 }
 
@@ -102,5 +102,65 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.style.zoom = 2"];
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (void) _slide:(MWFSlideDirection)direction {
+    [self.slideNavigationViewController slideWithDirection:direction];
+}
+- (void) slideUp:(id)sender {
+    [self _slide:MWFSlideDirectionUp];
+}
+- (void) slideLeft:(id)sender {
+    [self _slide:MWFSlideDirectionLeft];
+}
+- (void) slideDown:(id)sender {
+    [self _slide:MWFSlideDirectionDown];
+}
+- (void) slideRight:(id)sender {
+    [self _slide:MWFSlideDirectionRight];
+}
+- (void) close:(id)sender {
+    [self _slide:MWFSlideDirectionNone];
+}
+//Eliminar Boton?
+-(IBAction)slideAction:(id)sender{
+    [self slideRight:sender];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    MainTabBarController *tbC = (MainTabBarController*)appDelegate.window.rootViewController;
+    tbC.enabled = NO;
+}
+
+
+#pragma mark -
+#pragma mark Delegate implementation
+
+
+- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
+                   distanceForSlideDirecton:(MWFSlideDirection)direction
+                        portraitOrientation:(BOOL)portraitOrientation
+{
+    if (portraitOrientation)
+    {
+        return 100;
+        return 180;
+    }
+    else
+    {
+        return 100;
+    }
+}
+
+#pragma mark -
+#pragma mark Data source implementation
+
+- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
+                      viewControllerForSlideDirecton:(MWFSlideDirection)direction
+{
+    UITableViewController * secCtl = [[UITableViewController alloc] init];
+    UINavigationController * navCtl = [[UINavigationController alloc] initWithRootViewController:secCtl];
+    return navCtl;
 }
 @end
