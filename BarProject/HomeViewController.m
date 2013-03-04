@@ -46,9 +46,7 @@
                                              
                                              // Mostramos la informacion
                                              self.data = JSON;
-                                             self.descriptionLabel.text = JSON[0][@"description"];
-                                             self.chartLabel.text = JSON[1][@"description"];
-                                             self.timeLabel.text = JSON[2][@"description"];
+                                             
 
 
                                              //[self.tableView reloadData];
@@ -58,10 +56,21 @@
                                          }];
     [operation start];
     
-    // Llamamos a la funcion del mapa
-    [NSThread detachNewThreadSelector:@selector(loadMap) toTarget:self withObject:nil];
-    [self.webView setScalesPageToFit:NO];
-
+    #warning Direccion del servidor o cargar localmente
+    NSString *urlAddress = @"http://localhost/laravel/public/map/responsive/";
+    
+    //Creamos el URL del object
+    
+    url = [NSURL URLWithString:urlAddress];
+    
+    //Refrescar el URL del objeto
+    
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    //cargar UIWebView.
+    
+    [self.webView loadRequest:requestObj];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,35 +80,25 @@
 }
 
 - (void)viewDidUnload {
-    [self setDescriptionLabel:nil];
-    [self setChartLabel:nil];
-    [self setTimeLabel:nil];
+    
     [super viewDidUnload];
 }
 
 #pragma mark -
-#pragma mark Map functions
+#pragma mark WebView Delegate
 
--(void)loadMap{
-    NSString *urlAddress = map;
 
-    
-    //Creamos el URL del object
-    
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    
-    //Refrescar el URL del objeto
-    
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    
-    //cargar UIWebView.
-    
-    [self.webView loadRequest:requestObj];
-
-}
 -(void)webViewDidFinishLoad:(UIWebView *)webView
+
 {
-    //[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.style.zoom = 2"];
+    // Does not work if strings in javascript have '/r/' character
+    [self executeScript:[NSString stringWithFormat:@"change('#descriptionLabel', '%@');",   self.data[0][@"description"]]];
+    [self executeScript:[NSString stringWithFormat:@"change('#chartLabel', '%@');",         self.data[1][@"description"]]];
+    [self executeScript:[NSString stringWithFormat:@"change('#timeLabel', '%@');",          self.data[2][@"description"]]];
+}
+
+-(void)executeScript:(NSString *)script{
+    [self.webView stringByEvaluatingJavaScriptFromString:script];
 }
 
 #pragma mark -
@@ -133,7 +132,7 @@
 
 
 #pragma mark -
-#pragma mark Delegate implementation
+#pragma mark SlideViewDelegate implementation
 #define VIEWTAG_OVERLAY 1100
 - (void) slideNavigationViewController:(MWFSlideNavigationViewController *)controller willPerformSlideFor:(UIViewController *)targetController withSlideDirection:(MWFSlideDirection)slideDirection distance:(CGFloat)distance orientation:(UIInterfaceOrientation)orientation {
     

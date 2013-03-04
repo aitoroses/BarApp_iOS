@@ -45,10 +45,11 @@
   
     // Get the main controller Home
     UIViewController *home = [tbC.viewControllers objectAtIndex:0];
+    self.home = (HomeViewController *) home;
     UINavigationController *navCtl = [[UINavigationController alloc] initWithRootViewController:home];
     navCtl.navigationBar.barStyle = UIBarStyleBlack;
     // Setup slide navigation view controller instance
-    MWFSlideNavigationViewController *slideNavCtl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:navCtl];
+    MWFSlideNavigationViewController *slideNavCtl = [[MWFSlideNavigationViewController alloc] initWithRootViewController:home];
     slideNavCtl.panEnabled = YES;
     // Initialize the Slide View Controller Delegate and datasource *** Lo hacemos aqui por que el storyboard se carga antes de que se cree nuestro SlideViewController
     slideNavCtl.delegate = home;

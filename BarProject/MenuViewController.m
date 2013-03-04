@@ -7,6 +7,9 @@
 //
 
 #import "MenuViewController.h"
+#import "MWFSlideNavigationViewController.h"
+#import "HomeViewController.h"
+#import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface MenuViewController ()
@@ -29,7 +32,7 @@
     [super viewDidLoad];
     
     // Sections load
-    self.sections = @[@"Bar Mô",@"Descripción",@"Nuestra Carta",@"Horario", @"Nos gusta", @"Localización"];
+    self.sections = @[@"Bar Mô",@"Descripción",@"Nuestra Carta",@"Horario", @"Localización" ,@"Nos gusta"];
     
     // Navigation bar styleing
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
@@ -57,14 +60,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.sections.count;
 }
@@ -162,6 +163,19 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+
+    // Get the SlideViewControllers primary view and enable navigate via javascript
+    // Get the controller
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // Get the webView
+    UIWebView *webView = appDelegate.home.webView;
+
+    // Execute navigation script
+    NSString *script = [NSString stringWithFormat:@"navigate('#nav%d');", indexPath.row+1];
+    [webView stringByEvaluatingJavaScriptFromString:script];
+
+    // Close the panel
+    [appDelegate.home close:self];
 }
 
 @end
