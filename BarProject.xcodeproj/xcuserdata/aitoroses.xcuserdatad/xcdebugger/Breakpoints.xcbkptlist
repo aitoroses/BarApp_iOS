@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/HomeViewController.m"
-         timestampString = "383827460.346935"
+         timestampString = "383851680.681031"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "178"
-         endingLineNumber = "178"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-slideNavigationViewController:distanceForSlideDirecton:portraitOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/HomeViewController.m"
-         timestampString = "383826929.169555"
+         timestampString = "383851680.681031"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
          landmarkName = "-slideRight:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/HomeViewController.m"
-         timestampString = "383826929.169555"
+         timestampString = "383851680.681031"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-_slide:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/HomeViewController.m"
-         timestampString = "383826929.169555"
+         timestampString = "383851680.681031"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "-slideAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,7 +177,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/MenuViewController.m"
-         timestampString = "383849036.162745"
+         timestampString = "383853568.248001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "92"
@@ -190,12 +190,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BarProject/MenuViewController.m"
-         timestampString = "383849990.047538"
+         timestampString = "383853568.248001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "100"
          endingLineNumber = "100"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BarProject/AppDelegate.m"
+         timestampString = "383931225.309982"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -41,7 +41,7 @@
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
-    // ***** Setting the SlideViewController for Home tab
+    // ***** Setting the SlideViewController for Home View
   
     // Get the main controller Home
     UIViewController *home = [tbC.viewControllers objectAtIndex:0];
@@ -64,6 +64,7 @@
     
     // Configure delegate for TabBar for disabling
     [tbC setDelegate:tbC];
+    
     
     return YES;
 }

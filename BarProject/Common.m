@@ -7,7 +7,7 @@
 //
 
 #define SERVER_URL @"http://localhost/laravel/public"
-#define SECURE_SERVER_URL @"https://localhost/laravel/public"
+//#define SERVER_URL @"http://mo.breadrollsbirthday.es"
 
 NSString *const serverURL = SERVER_URL@"/";
 NSString *const pathToWineThumb = SERVER_URL@"/img/wines/thumb/";

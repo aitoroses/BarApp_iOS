@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     // Se obtiene la informacion general de la aplicación
     
     NSURL *url = [[NSURL alloc] initWithString:@"http://localhost/laravel/public/API/information.json"];
@@ -62,9 +62,6 @@
     [NSThread detachNewThreadSelector:@selector(loadMap) toTarget:self withObject:nil];
     [self.webView setScalesPageToFit:NO];
 
-    //[self.myMapView setShowsUserLocation:YES];
-    //[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning
