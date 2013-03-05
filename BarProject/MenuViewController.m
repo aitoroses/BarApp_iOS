@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "MWFSlideNavigationViewController.h"
 #import "HomeViewController.h"
+#import "LikeViewController.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -170,9 +171,15 @@
     // Get the webView
     UIWebView *webView = appDelegate.home.webView;
 
-    // Execute navigation script
-    NSString *script = [NSString stringWithFormat:@"navigate('#nav%d');", indexPath.row+1];
-    [webView stringByEvaluatingJavaScriptFromString:script];
+    if(indexPath.row < 5){
+        // Execute navigation script
+        NSString *script = [NSString stringWithFormat:@"navigate('#nav%d');", indexPath.row+1];
+        [webView stringByEvaluatingJavaScriptFromString:script];
+    } else {
+        LikeViewController *vcl = [[LikeViewController alloc] init];
+        //UINavigationController *= [[UINavigationController alloc] initWithRootViewController:appDelegate.home];
+        [appDelegate.home.navigationController pushViewController:vcl animated:YES];
+    }
 
     // Close the panel
     [appDelegate.home close:self];
